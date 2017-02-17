@@ -1,0 +1,33 @@
+
+# Misc
+.DS_Store
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+node_modules/*
+npm-debug.log
+npm-debug.log.*
+Thumbs.db
+coverage
+*.ts
+!*.d.ts
+tests
+*.spec.*
+*.test.*
+
+# IDE
+.idea
+.project
+.settings
+.vscode
+.idea/*
+*.iml
+
+# Misc Project
+*.yml
+karma*
+typings
+tsconfig.json
+tslint.json
+typings.json
