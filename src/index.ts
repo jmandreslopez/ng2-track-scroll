@@ -11,10 +11,10 @@ import { TrackScrollDirective } from './track-scroll';
     declarations: [TrackScrollDirective],
     exports: [TrackScrollDirective]
 })
-export class TrackScrollModule {
+export class Ng2TrackScrollModule {
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule: TrackScrollModule
+            ngModule: Ng2TrackScrollModule
         };
     }
 }
