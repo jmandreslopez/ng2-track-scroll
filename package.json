@@ -15,12 +15,12 @@
   "typings": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jmandreslopez/angular-track-scroll.git"
+    "url": "https://github.com/jmandreslopez/ng2-track-scroll.git"
   },
   "bugs": {
-    "url": "https://github.com/jmandreslopez/angular-track-scroll/issues"
+    "url": "https://github.com/jmandreslopez/bg2-track-scroll/issues"
   },
-  "homepage": "https://github.com/jmandreslopez/angular-track-scroll#readme",
+  "homepage": "https://github.com/jmandreslopez/bg2-track-scroll#readme",
   "scripts": {
     "rimraf": "rimraf",
     "lint": "tslint ./*.ts ./src/{,*/}*.ts",
@@ -29,7 +29,7 @@
     "clean:install": "npm set progress=false && npm install",
     "commit": "git-cz",
     "build": "tsc -d && ngc",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post"
   },
   "dependencies": {},
   "devDependencies": {
