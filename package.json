@@ -1,6 +1,6 @@
 {
   "name": "ng2-track-scroll",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Track Scroll for Angular",
   "author": "Jose Andres <jmandreslopez@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,9 @@
     "build": "tsc -d && ngc",
     "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
   "devDependencies": {
     "@angular/cli": "^1.0.0-beta.32.3",
     "@angular/common": "^2.4.7",
@@ -49,6 +51,7 @@
     "@types/es6-shim": "^0.31.32",
     "@types/jasmine": "^2.5.35",
     "@types/karma": "0.13.33",
+    "@types/lodash": "^4.14.52",
     "@types/marked": "0.0.28",
     "@types/node": "^7.0.0",
     "angular2-template-loader": "0.6.0",

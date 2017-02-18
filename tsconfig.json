@@ -30,7 +30,8 @@
     "types": [
       "node",
       "karma",
-      "jasmine"
+      "jasmine",
+      "lodash"
     ]
   },
   "files": [
