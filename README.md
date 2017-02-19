@@ -1,4 +1,4 @@
-# ng2-track-scroll [![npm version](https://img.shields.io/npm/v/ng2-track-scroll.svg?style=flat)](https://www.npmjs.com/package/ng2-page-scroll) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+# ng2-track-scroll [![npm version](https://img.shields.io/npm/v/ng2-track-scroll.svg?style=flat)](https://www.npmjs.com/package/ng2-track-scroll) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 Track Scroll for Angular2 using a directive
 
@@ -13,15 +13,12 @@ Track Scroll for Angular2 using a directive
 npm install ng2-track-scroll --save
 ```
 
-## Demo
-
-Coming soon
-
 ## Table of contents
 
 - [Setup](#setup)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Demo](#demo)
 
 ## Setup
 
@@ -115,10 +112,31 @@ export class MainElementComponent {
   }
 }
 ```
+
+## Demo
+
+The [demo](demo) subfolder contains a project created with angular-cli that has been adapted to showcase the functionality of ng2-track-scroll.
+To execute the code follow this steps:
+
+```
+// Go the the demo folder
+cd demo
+
+// Install dependencies
+npm install
+
+// Run the server
+ng serve
+```
+
+Then go to [http://localhost:4200](http://localhost:4200/) to check the demo running.
+
 ## TODO:
 
-* Add new configurations
 * Test across browsers
+* Implement a debug option
+* Add tests to the library and demo
+* Add new configurations
 
 ## License
 
