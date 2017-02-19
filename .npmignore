@@ -27,6 +27,7 @@ tests
 
 # Misc Project
 *.yml
+demo
 karma*
 typings
 tsconfig.json
