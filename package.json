@@ -1,6 +1,6 @@
 {
   "name": "ng2-track-scroll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Track Scroll for Angular",
   "author": "Jose Andres <jmandreslopez@gmail.com>",
   "license": "MIT",
@@ -18,9 +18,9 @@
     "url": "https://github.com/jmandreslopez/ng2-track-scroll.git"
   },
   "bugs": {
-    "url": "https://github.com/jmandreslopez/bg2-track-scroll/issues"
+    "url": "https://github.com/jmandreslopez/ng2-track-scroll/issues"
   },
-  "homepage": "https://github.com/jmandreslopez/bg2-track-scroll#readme",
+  "homepage": "https://github.com/jmandreslopez/ng2-track-scroll#readme",
   "scripts": {
     "rimraf": "rimraf",
     "lint": "tslint ./*.ts ./src/{,*/}*.ts",
@@ -31,9 +31,7 @@
     "build": "tsc -d && ngc",
     "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post"
   },
-  "dependencies": {
-    "lodash": "^4.17.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular/cli": "^1.0.0-beta.32.3",
     "@angular/common": "^2.4.7",
@@ -85,6 +83,7 @@
     "karma-mocha-reporter": "^2.2.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^1.8.0",
+    "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "ngm-cli": "0.4.4",
     "node-sass": "^3.6.0",

@@ -12,7 +12,9 @@ import { TrackScrollConfig, TrackScrollConfigModel } from './track-scroll.config
 export class TrackScrollDirective implements OnInit {
     @Input() trackScrollConfig: TrackScrollConfigModel = {};
     @Output() trackScrollEnter = new EventEmitter<boolean>();
+    @Output() trackScrollLeave = new EventEmitter<boolean>();
     private config: TrackScrollConfigModel;
+    private prestatus: string = '';
     private status: string = 'outside';
 
     constructor(private element: ElementRef) {
@@ -28,31 +30,43 @@ export class TrackScrollDirective implements OnInit {
 
             let scrollY: number = undefined;
             switch (this.config.position) {
-                case 'middle':
+                case 'middle': // Half the screen
                     scrollY = this.addOffset((window.innerHeight / 2) + window.scrollY);
                     break;
 
-                case 'top':
+                case 'top': // Top of the screen
                     scrollY = this.addOffset(window.scrollY);
                     break;
 
-                case 'bottom':
+                case 'bottom': // Bottom of the screen
                     scrollY = this.addOffset(window.innerHeight + window.scrollY);
                     break;
 
                 default: break;
             }
 
+            // Save status
+            this.prestatus = this.status;
+
             if (!_.isUndefined(scrollY)) {
+
+                // If scrollY is between the element's height
                 if (offsetTop <= scrollY && scrollY < offsetBottom) {
                     if (this.status === 'outside') {
                         this.status = 'inside';
+
+                        // Emit enter event
                         this.trackScrollEnter.emit(true);
                     }
                 }
                 else {
                     this.status = 'outside';
                 }
+            }
+
+            // Emit leave event if the status changed
+            if (this.status !== this.prestatus && this.status === 'outside') {
+                this.trackScrollLeave.emit(true);
             }
         }
     }
@@ -71,9 +85,11 @@ export class TrackScrollDirective implements OnInit {
                 case 'bottom':
                     return scrollY + this.config.offset;
                 default:
-                    return scrollY;
+                    break;
             }
         }
+
+        return scrollY;
     }
 
     public ngOnInit() {
