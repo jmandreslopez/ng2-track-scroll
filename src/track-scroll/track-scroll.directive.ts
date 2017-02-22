@@ -24,7 +24,7 @@ export class TrackScrollDirective implements OnInit {
     @HostListener('document:scroll', ['$event'])
     private track() {
         if (!_.isUndefined(this.config) && !_.isEmpty(this.config)) {
-            let offsetTop = this.element.nativeElement.offsetTop;
+            let offsetTop = this.getCoords(this.element.nativeElement).top;
             let offsetHeight = this.element.nativeElement.offsetHeight;
             let offsetBottom = offsetTop + offsetHeight;
 
@@ -79,17 +79,55 @@ export class TrackScrollDirective implements OnInit {
      */
     private addOffset(scrollY: number): number {
         if (this.config.offset > 0) {
-            switch (this.config.offsetPosition) {
-                case 'top':
-                    return scrollY - this.config.offset;
-                case 'bottom':
-                    return scrollY + this.config.offset;
-                default:
-                    break;
+            if (this.config.position === 'top') {
+                return scrollY + this.config.offset; // add offset
+            }
+            else if (this.config.position === 'bottom') {
+                return scrollY - this.config.offset; // minus offset
+            }
+            else if (this.config.position === 'middle') {
+                switch (this.config.offsetPosition) {
+                    case 'top':
+                        return scrollY - this.config.offset;
+                    case 'bottom':
+                        return scrollY + this.config.offset;
+                    default:
+                        break;
+                }
             }
         }
 
         return scrollY;
+    }
+
+    /**
+     * Get the real element coordinates
+     *
+     * Thanks to @basil
+     * See: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
+     *
+     * @Input el: HTMLElement
+     * @return { top: number, left: number }
+     */
+    getCoords(el: HTMLElement): { top: number, left: number} {
+        let box = el.getBoundingClientRect();
+
+        let body = document.body;
+        let docEl = document.documentElement;
+
+        let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+        let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+        let clientTop = docEl.clientTop || body.clientTop || 0;
+        let clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+        let top  = box.top +  scrollTop - clientTop;
+        let left = box.left + scrollLeft - clientLeft;
+
+        return {
+            top: Math.round(top),
+            left: Math.round(left)
+        };
     }
 
     public ngOnInit() {
