@@ -10,7 +10,7 @@
     "noEmitHelpers": false,
     "noImplicitAny": true,
     "declaration": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "stripInternal": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
