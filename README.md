@@ -1,6 +1,6 @@
 # ng2-track-scroll [![npm version](https://img.shields.io/npm/v/ng2-track-scroll.svg?style=flat)](https://www.npmjs.com/package/ng2-track-scroll) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-Track Scroll for Angular2 using a directive
+Track Scroll for Angular2
 
 ## Features
 

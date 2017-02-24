@@ -2,13 +2,13 @@
  * Created by Jose Andres on 02.16.17
  */
 
-export class TrackScrollConfigModel {
+export interface TrackScrollConfigModel {
     position?: string; // 'top', 'middle', 'bottom'
     offset?: number; // px
     offsetPosition?: string; // 'top', 'bottom'
 }
 
-export class TrackScrollConfig {
+export class TrackScrollConfig implements TrackScrollConfigModel {
     position: string;
     offset: number;
     offsetPosition: string;

@@ -22,13 +22,13 @@ export class TrackScrollDirective implements OnInit {
     }
 
     @HostListener('document:scroll', ['$event'])
-    private track() {
+    public track(event: Event) {
         if (!_.isUndefined(this.config) && !_.isEmpty(this.config)) {
             let offsetTop = this.getCoords(this.element.nativeElement).top;
             let offsetHeight = this.element.nativeElement.offsetHeight;
             let offsetBottom = offsetTop + offsetHeight;
-
             let scrollY: number = undefined;
+
             switch (this.config.position) {
                 case 'middle': // Half the screen
                     scrollY = this.addOffset((window.innerHeight / 2) + window.scrollY);
