@@ -31,15 +31,15 @@ export class TrackScrollDirective implements OnInit {
 
             switch (this.config.position) {
                 case 'middle': // Half the screen
-                    scrollY = this.addOffset((window.innerHeight / 2) + window.scrollY);
+                    scrollY = this.addOffset((window.innerHeight / 2) + (window.scrollY || window.pageYOffset));
                     break;
 
                 case 'top': // Top of the screen
-                    scrollY = this.addOffset(window.scrollY);
+                    scrollY = this.addOffset(window.scrollY || window.pageYOffset);
                     break;
 
                 case 'bottom': // Bottom of the screen
-                    scrollY = this.addOffset(window.innerHeight + window.scrollY);
+                    scrollY = this.addOffset(window.innerHeight + (window.scrollY || window.pageYOffset));
                     break;
 
                 default: break;
